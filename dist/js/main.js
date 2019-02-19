@@ -5,7 +5,7 @@ const menuNav = document.querySelector(".menu-nav");
 const menuBranding = document.querySelector(".menu-branding");
 const navItems = document.querySelectorAll(".nav-item");
 
-// Set Initial State of Menue
+// Set Initial State of Menu
 let showMenu = false;
 
 menuBtn.addEventListener("click", toggleMenu);
@@ -32,38 +32,16 @@ function toggleMenu() {
   }
 }
 
-//Functions for Modals
-//Get modal elements
-var modal = document.getElementById("simpleModal");
+$(document).on("click", ".open-modal", function() {
+  var myTargetModal = "#" + $(this).data("bid");
+  $("#myModal").hide();
+  $(".modal-content").hide();
 
-//Get open modal buttons
-var modalBtn = document.getElementById("modalBtn");
+  $("#myModal").fadeIn();
+  $(myTargetModal).fadeIn();
+});
 
-//Get close button
-var closeBtn = document.getElementsByClassName("closeBtn")[0];
-
-//Listen for open click
-modalBtn.addEventListener("click", openModal);
-
-//Listen for close click
-closeBtn.addEventListener("click", closeModal);
-
-//Listen for outside click
-window.addEventListener("click", outsideClick);
-
-//Function to open modals
-function openModal() {
-  modal.style.display = "block";
-}
-
-//Function to close modals
-function closeModal() {
-  modal.style.display = "none";
-}
-
-//Function to close modal if outside click
-function outsideClick(e) {
-  if (e.target == modal) {
-    modal.style.display = "none";
-  }
-}
+$("body").on("click", ".close-modal", function() {
+  $("#myModal").hide();
+  $(".modal-content").hide();
+});

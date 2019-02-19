@@ -157,6 +157,19 @@ main {
   }
 }
 // Button Styles
+button {
+  font-size: 100%;
+  font-family: inherit;
+  border: 0;
+  padding: 0;
+}
+
+.sb_button {
+  width: 100%;
+  margin-bottom: 0.3rem;
+  text-align: left;
+}
+
 .btn {
   display: block;
   padding: 0.5rem 1rem;
@@ -186,6 +199,64 @@ main {
   background: darken($primary-color, 10);
   color: set-text-color($primary-color);
   height: 60px;
+}
+
+//Modals
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 99; /* Sit on top */
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.modal-content {
+  background-color: #fefefe;
+  position: fixed;
+  top: 20%;
+  bottom: 20%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70%; /* Could be more or less, depending on screen size */
+  display: none;
+  box-sizing: border-box;
+  z-index: 100;
+  overflow: auto;
+}
+
+.modal-header {
+  border-bottom: 1px #aaa solid;
+}
+
+.modal-footer {
+  background: lighten($primary-color, 30);
+  padding: 10px;
+  color: #000;
+  text-align: center;
+}
+
+.close-modal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close-modal:hover,
+.close-modal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 @import "mobile";
