@@ -1,0 +1,23 @@
+{
+  "name": "mywebsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pastormay/mywebsite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pastormay/mywebsite/issues"
+  },
+  "homepage": "https://pastormay.github.io/mywebsite",
+  "dependencies": {
+    "gh-pages": "^3.0.0"
+  }
+}
