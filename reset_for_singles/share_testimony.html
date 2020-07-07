@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+ 
+</head>
+<body class="contactBody">   
+        <div class="wrapper">
+        <div class="title">
+           Share a Testimony
+           <div id="title-Tag-Line">
+            <p>
+              Share a testimony about something God has done in your life through the Reset for Single Ladies classes. I'd love to hear from you.
+            </p>
+          </div>
+      
+        </div>
+      
+
+        <form class="form" action="https://formspree.io/mqkyyyvb" method="POST">
+            <input type="text" class="name entry " name="name" placeholder="Your Name"/>
+            
+            <input type="text" class="email entry" name="email" placeholder="Email"/>
+            
+            <textarea class="message entry" name = "message" placeholder="Message"></textarea> 
+  
+            <input type="hidden" name="_subject" value="Reset Testimony" />
+  
+            <input type="text" name="_gotcha" style="display:none" />
+            
+            <button type="submit" class="submit entry" onclick="thanks()">Submit</button>
+          </form>  
+          
+          <div class="shadow"></div>
+        </div>
+        
+      <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+$dev_md_min: 35.625rem;
+$dev_lg_max: 45.625rem;
+$dev_lg_min: 45.688rem;
+
+:root {
+	// COLOR CSS VARIABLES
+	--color_base: #85c1b1; // Mint 
+	--color_mag: #ebe9e2; // Creamy
+	--color_headline: #aa8740; // Gold
+	--color_ink: #282724; // Black
+	
+	// SIZE VARIABLES	
+	--magazine: 52rem;
+	--img_size: 15rem;
+	--img_size_circled: calc(var(--img_size) / 2);
+	--gap: calc(var(--magazine) / 17.333333333333333);
+	--gap_half: calc(var(--gap) / 2);
+	--border: 2px;
+	
+	@media screen and (min-width: $dev_md_min) {
+		--gap: calc(var(--magazine) / 8.666666666666667);
+	}
+}
+
+// MIXINS
+@mixin size($w, $h: $w) {
+	width: $w;
+	height: $h;
+}
+
+// LAYOUT
+body {
+	min-width: 20rem;
+	background-color: var(--color_base);
+	color: var(--color_ink);
+	font-family: 'PT Sans', sans-serif;
+	margin: 0;
+}
+
+figure {
+	margin: 0;
+}
+
+p {
+	font-size: 0.9rem;
+	line-height: 1.7;
+}
+
+::selection {
+	background-color: var(--color_base);
+}
+
+// UTILITY
+.u-col {
+	// This container allows the creation of a smoother top half circular shape in text columns, and avoids paragraph columns to break on any given breakpoint.
+	display: inline-block;
+}
+
+.u-txt-right {
+	@media screen and (min-width: $dev_lg_min) {
+		text-align: right;	
+	}
+}
+
+.u-circled {
+	border-radius: 50%;
+	shape-outside: circle();
+	
+	@media screen and (min-width: $dev_md_min) {
+		@include size(calc(var(--img_size) * 1.1));
+	}
+	
+	@media screen and (min-width: $dev_lg_min) {
+		@include size(var(--img_size_circled));
+	}
+}
+
+.u-float-right {
+	@media screen and (min-width: $dev_md_min) {
+		float: right;
+	}
+}
+
+.u-float-left {
+	@media screen and (min-width: $dev_lg_min) {
+		float: left;
+	}
+}
+
+// COMPONENTS 
+.c-heading {
+	font-family: 'Frank Ruhl Libre', serif;	
+	font-weight: normal;
+	margin: 0;
+	
+	&--prim {
+		border-bottom: var(--border) solid var(--color_ink);
+		color: var(--color_headline);
+		font-size: 3.5rem;
+		line-height: 0.9;
+		margin-bottom: 0.7rem;
+		padding-bottom: 1.5rem;
+		
+		@media screen and (min-width: $dev_md_min) {
+			font-size: 6rem;
+		}
+	}
+	
+	&--sec {
+		font-size: 1.15rem;
+	}
+}
+
+// OBJECTS
+.o-grid {
+	max-width: var(--magazine);
+	background-color: var(--color_mag);
+	background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f9f7f0' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+	border-left: calc((100vw - var(--magazine)) / 2) solid var(--color_ink);
+	border-right: var(--border) solid var(--color_ink);
+	
+	display: grid;
+	grid-template: auto 1fr / var(--gap) repeat(2, 1fr) var(--gap);
+		
+	&__area {
+		grid-column: 2 / span 2;
+		
+		&--media {
+			justify-self: center;
+
+			@media screen and (min-width: $dev_md_min) and (max-width: $dev_lg_max) {
+				justify-self: flex-end;
+			}
+		}
+	}
+}
+
+.o-header {	
+	margin-top: var(--gap_half);
+	text-align: center;
+}
+
+.o-media {
+	@include size(var(--img_size));
+	border-radius: 50%;
+	margin-top: 2rem;
+	overflow: hidden;
+
+	&__img {
+		width: 100%;
+	}
+}
+
+.o-content {		
+	columns: 15rem;
+	column-gap: calc(var(--gap) / 1.7);
+
+	@media screen and (min-width: $dev_md_min) {
+		margin-top: calc(var(--img_size_circled) * -2);
+	}
+
+	@media screen and (min-width: $dev_lg_min) {
+		margin-top: calc(var(--img_size_circled) * -1);
+	}
+}
+
+.o-footer {
+	margin-top: 2rem;
+	opacity: 0.2;
+
+	p {
+		line-height: 1.3;
+		word-break: break-all;
+	}
+}
